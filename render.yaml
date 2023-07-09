@@ -5,7 +5,7 @@ services:
     plan: free
     repo: https://github.com/arysttoto/helpmesolve_back.git
     region: frankfurt
-    branch: main 
+    branch: master
     envVars:
       - key: OPEN_AI_TOKEN
         sync: false   
