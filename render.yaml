@@ -7,8 +7,14 @@ services:
     region: frankfurt
     branch: main 
     envVars:
-      - key: MONGO_URL   
+      - key: OPEN_AI_TOKEN
         sync: false   
+      - key: PINECONE_API_TOKEN
+        sync: false 
+      - key: SERPAPI_API_KEY
+        sync: false 
+      - key: PINECONE_API_ENV
+        sync: false 
     buildFilter:
       paths:
       - app/**    
