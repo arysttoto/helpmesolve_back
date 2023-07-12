@@ -28,7 +28,7 @@ class ResponseModel(AppModel):
     message: str
 
 @router.post("/response", 
-            status_code=status.HTTP_201_CREATED)#, response_model=ResponseModel)
+            status_code=status.HTTP_201_CREATED) #, response_model=ResponseModel)
 async def generate_response(
     request: Request, 
     svc: Service = Depends(get_service) 
