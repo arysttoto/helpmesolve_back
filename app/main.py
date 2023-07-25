@@ -2,6 +2,8 @@ from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
 from app.chats.router import router as chats_router
+from app.auth.router import router as auth_router 
+
 from app.config import client, env, fastapi_config
 
 from dotenv import load_dotenv
@@ -24,4 +26,5 @@ app.add_middleware(
     allow_credentials=True,
 )
 
+app.include_router(auth_router, prefix="/auth", tags=["Auth"]) 
 app.include_router(chats_router, prefix="/chats", tags=["Chats"]) 

@@ -29,7 +29,7 @@ class JwtService:
         jwt_data = {
             "sub": str(user["_id"]),
             "exp": datetime.utcnow() + expires_delta,
-        }
+        } 
 
         return jwt.encode(jwt_data, self.secret, algorithm=self.algorithm)
 
@@ -42,7 +42,7 @@ class JwtService:
         except JWTError:
             raise InvalidToken()
 
-        return JWTData(**payload)
+        return JWTData(**payload) 
 
 
 class AuthorizationFailed(Exception):

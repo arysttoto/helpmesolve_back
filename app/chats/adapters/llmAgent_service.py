@@ -113,3 +113,17 @@ class LlmAgent:
         # prompt_messages = [HumanMessage(content=messages[i]) if i % 2 == 0 else AIMessage(content=messages[i]) for i in range(len(messages))]  
         # # # # # # # # # # # # # # # # # # # # # # #  
         return self.agent.run(input=messages[-1], chat_history=messages[:-1]) # , chat_history=final_prompt[:-1]    
+    
+    def generate_solution(self, description): 
+        solution_prompt = f"""Imagine you are facing the following problem and need a step-by-step plan to solve it. 
+        Your task is to provide a clear and concise plan, broken down into numbered steps. Remember, the output should contain only the steps like: 1. 2. 3., don't include the explanation or code in your response. 
+        Here's the problem: 
+        '''{description}'''
+        """ 
+        return self.agent.run(input=solution_prompt, chat_history={""}) 
+
+    def generate_code(self, description, solution_steps): 
+        code_prompt = f"""You have a coding problem: {description}
+                        You have to solve this problem and output the code only!!! NEVER OUTPUT ANYTHING ELSE THAN CODE"""
+        
+        return self.agent.run(input=code_prompt, chat_history={""})    
