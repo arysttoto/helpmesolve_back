@@ -29,7 +29,7 @@ mongo_url = (
     f"mongodb://{env.MONGOUSER}:{env.MONGOPASSWORD}@{env.MONGOHOST}:{env.MONGOPORT}/"
 )
 if env.MONGO_URL:
-    mongo_url = env.MONGO_URL
+    mongo_url = env.MONGO_URL 
 
 # MongoDB connection
 client = MongoClient(mongo_url)
