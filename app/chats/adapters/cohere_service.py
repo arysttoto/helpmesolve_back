@@ -22,7 +22,7 @@ class CohereAI:
         # )  
         # return response[1]
         response = self.co.generate(
-          model='command-xlarge-beta',
+          model='command',
           prompt=(prompt_template.format(description)),
           max_tokens=80,
           temperature=0.3,
