@@ -84,7 +84,7 @@ class LlmAgent:
             Tool( 
                 name="Solve Problem", 
                 func=self.find_similar_or_solution,
-                description="Use it everytime when you need to solve any coding problem REMEMBER THAT USER DOESN'T SEE THE RESPONSE SO IF IT IS RELATABLE OUTPUT IT!!!, USE IT!!!. Even if you know the answer, still use it." 
+                description="Use it everytime when you need to solve a coding problem and you aren't sure if you can. REMEMBER THAT USER DOESN'T SEE THE RESPONSE SO IF IT IS RELATABLE OUTPUT IT!!!" 
             )        
         ]         
                 

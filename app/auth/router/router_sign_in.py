@@ -22,6 +22,7 @@ async def signin_user(
     svc: Service = Depends(get_service),
 ) -> AuthorizeUserResponse: 
     Input = await request.json() 
+    
     # website block for less tokens spend.
     if (Input['email'] != "admin") or (Input["password"] != "123"): 
         raise InvalidCredentialsException 
