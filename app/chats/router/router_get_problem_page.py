@@ -28,7 +28,7 @@ class getProblemsPageResponse(AppModel):
     per_page: int 
     problems: List[Problem] 
 
-problemsPerPage = 5
+problemsPerPage = 3
 
 @router.get("/problems/{page}", status_code=200) 
 def get_problems_page(

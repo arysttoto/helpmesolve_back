@@ -5,7 +5,7 @@ import logging
 from fastapi import Depends, HTTPException, status
 from pydantic import Field
 
-from app.utils import AppModel
+from app.utils import AppModel 
 
 from ..service import Service, get_service
 from . import router

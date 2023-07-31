@@ -12,6 +12,21 @@ class AuthRepository:
     def __init__(self, database: Database):
         self.database = database
 
+    def subscribe_to_newsletter(self, name, email): 
+        payload = {
+            "name": name, 
+            "email": email
+        }
+        self.database["newsletter_subscriptions"].insert_one(payload) 
+        
+    def help_ticket(self, name, email, message): 
+        payload = {
+            "name": name, 
+            "email": email,
+            "message": message
+        }
+        self.database["help_tickets"].insert_one(payload) 
+
     def create_solution_card(self, user_id, title, solution, code):
         payload = {
             "user_id": ObjectId(user_id),
