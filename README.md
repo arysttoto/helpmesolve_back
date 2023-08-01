@@ -29,7 +29,7 @@ docker-compose build
 
 2. Start the project
 
-```bash
+```bash 
 docker-compose up -d 
 ```
 

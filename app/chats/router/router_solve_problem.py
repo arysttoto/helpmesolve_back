@@ -16,7 +16,7 @@ class solveProblemRequest(AppModel):
 
 
 class createPostResponse(AppModel):
-    new_post_id: str
+    new_post_id: str 
 
 
 @router.post("/solve", status_code=200)
@@ -26,11 +26,12 @@ def create_post(
     svc: Service = Depends(get_service),
 ):
     user_id = jwt_data.user_id # retrieve the user id from jwt to add it to solution card info
-
-    title = svc.cohere_service.generate_title(input.description) 
-    solution = svc.llm_agent.generate_solution(input.description) # generate the step by step solution 
+    
+    problem = svc.open_ai.generate_plan(input.description) 
+    title = problem['title'] 
+    solution = problem['steps'] # generate the step by step solution 
     if ( input.code ): # if the code is set to True, means user wants to generate code solution too
-        code = svc.llm_agent.generate_code(input.description, solution) # generate the code based on description and solution 
+        code = problem['code'] # generate the code based on description and solution 
     else:
         code = None 
     

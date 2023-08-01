@@ -16,7 +16,7 @@ from typing import Optional, Any
 
 class getProblemResponse(AppModel):
     title: str 
-    solution: str 
+    solution: list 
     code: Optional[str] 
     created_at: Any 
 

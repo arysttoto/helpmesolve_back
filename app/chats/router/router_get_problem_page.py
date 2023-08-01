@@ -17,7 +17,7 @@ from pydantic import Field
 class Problem(AppModel):
     id: Any = Field(alias="_id")  
     title: str 
-    solution: str  
+    solution: list 
     code: Optional[str]  
     created_at: Any 
 
