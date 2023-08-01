@@ -23,9 +23,9 @@ async def signin_user(
 ) -> AuthorizeUserResponse: 
     Input = await request.json() 
     
-    # website block for less tokens spend.
-    if (Input['email'] != "admin") or (Input["password"] != "123"): 
-        raise InvalidCredentialsException 
+    # # website block for less tokens spend.
+    # if (Input['email'] != "admin") or (Input["password"] != "123"): 
+    #     raise InvalidCredentialsException 
     
     user = svc.repository.get_user_by_email(Input['email'])  
 
