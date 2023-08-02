@@ -1,4 +1,4 @@
-# FastAPI + MongoDB Boilerplate
+# FastAPI + MongoDB Boilerplate 
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/WleFVe?referralCode=UBd_g_)
 
@@ -35,7 +35,7 @@ docker-compose up -d
 
 3. Watch logs
 
-```bash
+```bash 
 docker-compose logs -f app
 ```
 
