@@ -13,6 +13,8 @@ from .errors import InvalidCredentialsException, AuthorizationFailedException
 
 from typing import Optional, List, Any 
 from pydantic import Field 
+# from time import sleep 
+
 
 class Problem(AppModel):
     id: Any = Field(alias="_id")  
@@ -38,4 +40,5 @@ def get_problems_page(
 ):
     user_id = jwt_data.user_id # retrieve the user id from jwt to add it to solution card info
     problems = svc.repository.get_problems_page(user_id=user_id, page=page, per_page=problemsPerPage)  
+    # sleep(2) 
     return getProblemsPageResponse(total_count=problems[0], page_count=problems[1], current_page=problems[2], per_page=problems[3], problems=problems[4])  

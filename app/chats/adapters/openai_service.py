@@ -44,7 +44,7 @@ class OpenAI:
     
     def generate_plan(self, description):
         completion = openai.ChatCompletion.create( 
-            model="gpt-3.5-turbo", # gpt-4-0613 for better answers... 
+            model="gpt-4-0613", # gpt-3.5-turbo for faster answers... 
             messages=[{"role": "user", "content": f"""Problem: {description}"""}],
             functions=[self.steps_function],
             function_call={"name": "get_problem_steps"} ) # {"name": ["get_problem_steps"]} "auto" 
