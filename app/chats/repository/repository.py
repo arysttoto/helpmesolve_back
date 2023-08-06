@@ -3,6 +3,7 @@ from typing import Optional
 
 from bson.objectid import ObjectId
 from pymongo.database import Database
+import pymongo 
 
 from ..utils.security import hash_password 
 
@@ -72,7 +73,7 @@ class AuthRepository:
             problems = ( 
             self.database["problem_solutions"] 
             .find(query) 
-            .sort("created_at")  
+            .sort("created_at", pymongo.DESCENDING)  
             .skip(per_page * (current_page - 1))  
             .limit(per_page)  
             ) 

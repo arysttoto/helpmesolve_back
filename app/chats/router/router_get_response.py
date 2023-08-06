@@ -34,7 +34,7 @@ async def generate_response(
     svc: Service = Depends(get_service) 
 ): 
     request_data = await request.json() 
-    print(request, flush=True) 
+    # print(request, flush=True) 
 
     response = svc.llm_agent.generate_response(request_data)  
 
@@ -49,7 +49,7 @@ async def generate_response(
             result = copy.deepcopy(item) 
             text = result    
             yield text  
-            sleep(0.05) 
+            sleep(0.01)   
         yield '[DONE]' 
-            
-    return EventSourceResponse(server_sent_events())  
+             
+    return EventSourceResponse(server_sent_events())   

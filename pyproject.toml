@@ -18,7 +18,7 @@ python-dotenv = "^1.0.0"
 boto3 = "^1.26.153"
 pydantic = "^1.10.9"
 requests = "^2.31.0"
-langchain = "^0.0.221"
+langchain = "^0.0.252"
 pinecone-client = "^2.2.2"
 openai = "^0.27.8"
 bs4 = "^0.0.1"
@@ -26,6 +26,8 @@ google-search-results = "^2.4.2"
 asyncio = "^3.4.3"
 sse-starlette = "^1.6.1"
 cohere = "^4.17.0"
+tiktoken = "^0.4.0"
+trafilatura = "^1.6.1"
 
 
 
