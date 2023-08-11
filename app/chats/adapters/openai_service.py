@@ -57,11 +57,11 @@ class OpenAI:
         similar_problem = dict(list(doc_problem)[0][0])["page_content"] if doc_problem else "" 
         print(similar_problem, flush=True)   
         completion = openai.ChatCompletion.create(          
-            model="gpt-4-0613", # gpt-3.5-turbo for faster answers... 
+            model="gpt-3.5-turbo", # gpt-3.5-turbo for faster answers... 
             messages=[{"role": "user", "content": f"""Problem: {description if not similar_problem else similar_problem}"""}],
             functions=[self.steps_function], 
             function_call={"name": "post_problem"} ) # {"name": ["get_problem_steps"]} "auto" 
-        reply_content = completion.choices[0].message
+        reply_content = completion.choices[0].message 
         # json validation, specifically for the JSON library.
         funcs = reply_content.to_dict()['function_call']['arguments']# .replace('\\', '\\\\')  
         funcs = json.loads(funcs, strict=False) 
@@ -86,7 +86,7 @@ class OpenAI:
         docsearch = Pinecone.from_existing_index(index_name, self.embeddings) # could be outside too... 
         similar = docsearch.similarity_search_with_score(query=query, k=1)     
         similarity_score = list(similar)[0][1] 
-        if similarity_score >= 0.80: 
+        if similarity_score >= 0.85: 
             answer = similar 
         else: 
             answer = "" 

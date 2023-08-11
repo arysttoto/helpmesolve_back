@@ -99,7 +99,7 @@ class LlmAgent:
     ###  TO MINIMIZE THE TOKENS USED, scraping data from internet ###
     def get_text_from_url(self, url):  
         downloaded = trafilatura.fetch_url(url) 
-        data = trafilatura.extract(downloaded)
+        data = trafilatura.extract(downloaded) 
         if data:
             data = data[:8000] 
         print("DATA:", data, flush=True) 
@@ -123,7 +123,7 @@ class LlmAgent:
         answer = similar[:1]  
         result = self.chain.run(input_documents=answer, question="GIVE DETAILED ANSWER: "+question)  
         # print("RESULT:", result, flush=True)  
-        return result 
+        return result  
 
     def generate_response(self, messages): 
         # # # # # # # # # # # # # # # # # # # # # # #
@@ -146,7 +146,7 @@ class LlmAgent:
 
     def generate_code(self, description, solution_steps): 
         code_prompt = f"""You have a coding problem: {description} 
-                        You have to solve this problem and output the code only!!! NEVER OUTPUT ANYTHING ELSE THAN CODE"""
+                        You have to solve this problem and output the code only!!! NEVER OUTPUT ANYTHING ELSE THAN CODE""" 
         
         return self.agent.run(input=code_prompt, chat_history={""}) 
 
