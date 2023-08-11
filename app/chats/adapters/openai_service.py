@@ -44,7 +44,7 @@ class OpenAI:
                         },
                     "code": {
                         "type": "string", 
-                        "description": "This is the code to solve algorithmic problem in fenced block format with programming language e.g. ```python [code]```"
+                        "description": "This is the code to solve algorithmic problem in fenced block format with programming language example: ```python [code]```"
                         } 
                     },
                 "required": ["title", "steps", "code"]  
