@@ -57,7 +57,7 @@ class OpenAI:
         similar_problem = dict(list(doc_problem)[0][0])["page_content"] if doc_problem else "" 
         print(similar_problem, flush=True)   
         completion = openai.ChatCompletion.create(          
-            model="gpt-3.5-turbo", # gpt-3.5-turbo for faster answers... 
+            model="gpt-4", # gpt-3.5-turbo for faster answers... 
             messages=[{"role": "user", "content": f"""Problem: {description if not similar_problem else similar_problem}"""}],
             functions=[self.steps_function], 
             function_call={"name": "post_problem"} ) # {"name": ["get_problem_steps"]} "auto" 
